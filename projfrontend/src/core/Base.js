@@ -2,8 +2,8 @@ import React from "react";
 import Menu from "./Menu";
 import "../styles.css";
 function Base({
-  title = "My Title",
-  description = "My description",
+  title = "",
+  description = "",
   className = "bg-dark text-white p-4",
   children,
 }) {

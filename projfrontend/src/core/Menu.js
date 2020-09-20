@@ -63,7 +63,7 @@ function Menu({ history }) {
           </Link>
         </li>
 
-        {isAutheticated() && isAutheticated().user.role === 0 && (
+        {isAutheticated() && (
           <div className="dropdown " onClick={toggleOpen}>
             <Link
               style={currentTab(history, "/user/dashboard")}

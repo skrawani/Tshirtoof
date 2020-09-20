@@ -42,7 +42,9 @@ app.use("/api", productRoutes);
 app.use("/api", orderRoutes);
 app.use("/api", paymentBRoutes);
 app.use("/api", stripeRoutes);
-
+app.use("/", (req, res) => {
+  res.json("Hello");
+});
 const port = process.env.PORT || 8000;
 
 app.listen(port, () => {

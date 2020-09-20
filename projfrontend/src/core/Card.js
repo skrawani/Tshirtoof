@@ -76,9 +76,10 @@ const Card = ({
     return (
       removeFromCart && (
         <Fragment>
-          <div className="col-2 text-center">Count :</div>
+          <div className="col-12 col-sm-2 col-md-2 text-center">Count :</div>
+
           <div
-            className="col-1 text-center  btn-warning rounded"
+            className="col-4 col-sm-1 col-md-1 text-center center  btn-warning rounded"
             onClick={() => {
               incDecItems(product._id, -1);
               setCartCount(cartCounter());
@@ -88,9 +89,11 @@ const Card = ({
             -
           </div>
 
-          <div className="col-1 text-center">{product.count}</div>
+          <div className="col-4 col-sm-1 col-md-1 text-center">
+            {product.count}
+          </div>
           <div
-            className="col-1 text-center  btn-warning rounded"
+            className="col-4 col-sm-1 col-md-1 text-center  btn-warning rounded"
             onClick={() => {
               incDecItems(product._id, 1);
               setReload(!reload);
@@ -113,8 +116,8 @@ const Card = ({
           {cardDesc}
         </p>
         <div className="row">
-          <div className="col-3 text-center">Price :</div>
-          <div className="col-3 text-center  btn-success rounded">
+          <div className="col-sm-3 col-md-3 col-12 text-center">Price :</div>
+          <div className="col-sm-3 col-md-3 col-12  text-center  btn-success rounded">
             ₹ {cardPrice}
           </div>
           {showCount()}

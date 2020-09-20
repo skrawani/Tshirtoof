@@ -43,14 +43,14 @@ const Cart = () => {
   return (
     <Base title="Cart Page" description="Ready to Checkout">
       <div className="row text-center">
-        <div className="col-6">
+        <div className="col-sm-6 col-md-6 col-12">
           {products.length > 0 ? (
             loadAllProducts(products)
           ) : (
             <h3>No Products in cart</h3>
           )}
         </div>
-        <div className="col-6">
+        <div className="col-sm-6 col-md-6 col-12">
           {products.length ? (
             <StripeCheckout products={products} setReload={setReload} />
           ) : (

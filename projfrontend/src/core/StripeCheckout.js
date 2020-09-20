@@ -102,26 +102,33 @@ const StripeCheckout = ({
   const round2 = (x) => {
     return x.toFixed(2);
   };
+
+  // cont fontStyle = () => {
+  //   retturn fontSiz
+  // }
   return (
     <div>
-      <h5 className="text-white">No of items in cart : {products.length}</h5>
-      <div className="container bg-info p-4">
+      <h5 className="text-white">No of items in cart : {cartCount}</h5>
+      <div
+        className="container-fluid bg-info p-4"
+        style={{ fontSize: "0.75rem" }}
+      >
         <div className="bg-white rounded">
           <div className="row ">
             <div className="col-2 text-dark"></div>
 
-            <div className="col-7 text-left text-dark">Name</div>
-            <div className="col-3  mb-4 text-left text-dark">Price</div>
+            <div className="col-7 my-1 text-left text-dark">Name</div>
+            <div className="col-3  my-1 text-left text-dark">Price</div>
           </div>
           {products.length && <div>HI</div>}
           {products.map((prod, i) => (
             <div key={i} className="list-group-item d-flex lh-condensed">
               <div className="col-1 text-dark">{i + 1}</div>
               <div className="col-6 text-dark text-left">{prod.name}</div>
-              <div className="col-2 text-dark text-left">
+              <div className="col-12 col-sm-2 col-md-2 text-dark text-left">
                 ₹ {prod.price} * {prod.count}
               </div>
-              <div className="col-3 mb-3 ml-3 text-dark text-left">
+              <div className="col-3 mb-3 ml-1 ml-sm-3 ml-md-3 text-dark text-left">
                 ₹ {round2(prod.price * prod.count)}
               </div>
             </div>
