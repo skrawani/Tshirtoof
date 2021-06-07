@@ -6,6 +6,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
+const path = require("path");
 
 // My  Routes
 const authRoutes = require("./routes/auth");
@@ -42,9 +43,10 @@ app.use("/api", productRoutes);
 app.use("/api", orderRoutes);
 app.use("/api", paymentBRoutes);
 app.use("/api", stripeRoutes);
-app.use("/", (req, res) => {
-  res.json("Hello");
-});
+
+// Right before your app.listen(), add this:
+app.use(express.static(path.join(__dirname, "./client/build")));
+
 const port = process.env.PORT || 8000;
 
 app.listen(port, () => {
