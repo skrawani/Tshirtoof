@@ -14,11 +14,8 @@ const Card = ({
   addtoCart = true,
   removeFromCart = false,
   setReload = (f) => f,
-  // function(f) {return f}
   reload = undefined,
 }) => {
-  // console.log(product);
-
   const [redirect, setRedirect] = useState(false);
 
   const cardTitle = product ? product.name : "A photo from pexels";
@@ -108,22 +105,22 @@ const Card = ({
   };
 
   return (
-    <div className="card text-white bg-dark border border-info ">
+    <div className="card text-white bg-dark border border-light mb-2 ">
       <div className="card-header lead">{cardTitle}</div>
       <div className="card-body">
         <ImageHelper product={product} />
-        <p className="lead bg-success font-weight-normal text-wrap">
+        <p className="lead font-weight-normal text-wrap mt-2 border-top border-success pt-1">
           {cardDesc}
         </p>
         <div className="row">
-          <div className="col-sm-3 col-md-3 col-12 text-center">Price :</div>
-          <div className="col-sm-3 col-md-3 col-12  text-center  btn-success rounded">
-            ₹ {cardPrice}
+          <div className="col-sm-4 col-md-4 col-12 text-center">Price:</div>
+          <div className="text-center  btn-success px-5 rounded">
+            ₹{cardPrice}
           </div>
           {showCount()}
         </div>
         <div className="row">
-          <div className="col-12">{showAddToCart(addtoCart)}</div>
+          <div className="col-12 mt-1">{showAddToCart(addtoCart)}</div>
           <div className="col-12">{showRemoveFromCart(removeFromCart)}</div>
         </div>
       </div>

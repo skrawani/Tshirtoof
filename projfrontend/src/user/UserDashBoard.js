@@ -2,7 +2,15 @@ import React from "react";
 import Base from "../core/Base";
 
 const UserDashboard = () => {
-  return <Base>{/* <h1>This is a profile page</h1> */}</Base>;
+  return (
+    <Base>
+      <div className="container">
+        <div className="row">
+          <div className="col-4"> UserDashboard</div>
+        </div>
+      </div>
+    </Base>
+  );
 };
 
 export default UserDashboard;

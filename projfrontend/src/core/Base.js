@@ -4,16 +4,16 @@ import "../styles.css";
 function Base({
   title = "",
   description = "",
-  className = "bg-dark text-white p-4",
+  className = "bg-dark text-white ",
   children,
 }) {
   return (
     <div>
       <Menu />
       <div className="container-fluid">
-        <div className="jumbotron bg-dark text-white text-center">
-          <h2 className="display-4">{title}</h2>
-          <p className="lead">{description}</p>
+        <div className=" jumbotron  py-4 bg-dark text-white text-center">
+          <h1 className="">{title}</h1>
+          <h4 className="">{description}</h4>
           <div className={className}>{children}</div>
         </div>
         <footer className="footer bg-dark mt-auto">

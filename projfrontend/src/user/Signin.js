@@ -14,8 +14,8 @@ import { CartCountContext } from "../CartCountContext";
 
 const Signin = () => {
   const [values, setValues] = useState({
-    email: "john@gmail.com",
-    password: "12345",
+    email: "",
+    password: "",
     error: "",
     loading: false,
     didRedirect: false,
@@ -56,7 +56,7 @@ const Signin = () => {
       if (user && user.role === 1) {
         return <Redirect to="/admin/dashboard" />;
       } else {
-        return <Redirect to="/user/dashboard" />;
+        return <Redirect to="/" />;
       }
     }
     if (isAutheticated()) {
@@ -85,8 +85,8 @@ const Signin = () => {
 
   const signInForm = () => {
     return (
-      <div className="row">
-        <div className="col-md-6 offset-sm-3 text-left">
+      <div className="row" style={{ marginTop: "6rem" }}>
+        <div className="col-md-6 offset-sm-3 text-left items">
           <form>
             <div className="form-group">
               <label className="text-light">Email</label>
@@ -116,11 +116,14 @@ const Signin = () => {
   };
   return (
     <Base title="Sign In Page" description="A page for user to signin!">
-      {loadingMessage()}
-      {errorMessage()}
-      {signInForm()}
-      {performRedirect()}
-      <p className="text-white text-center"> {JSON.stringify(values)}</p>
+      <div className="">
+        {loadingMessage()}
+        {errorMessage()}
+        {signInForm()}
+        {performRedirect()}
+      </div>
+      {/* <p className="text-white text-center"> {JSON.stringify(values)}</p> */}
+      <div style={{ height: "16vh" }}></div>
     </Base>
   );
 };

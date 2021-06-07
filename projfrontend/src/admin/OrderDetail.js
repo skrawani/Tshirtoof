@@ -53,21 +53,20 @@ const OrderDetail = ({ match }) => {
   };
 
   return (
-    <Base
-      title="Order Details"
-      description="Provide all details about the product"
-    >
-      <div>
+    <Base title="Order Details">
+      <div className="mt-3 p-5">
         <h5 className="text-white text-left">
           Transaction Id: {order.transaction_id}
         </h5>
         <div>
-          <h5 className="text-left">User Details:</h5>
+          <h5 className="text-left">Created At : {order.createdAt}</h5>
+          <h5 className="text-left">Updated At : {order.updatedAt}</h5>
+          <h5 className="text-left mt-4">User Details:</h5>
           <h6 className="text-left">Id : {order.user._id}</h6>
           <h6 className="text-left">Name : {order.user.name}</h6>
         </div>
         <div>
-          <h5 className="text-white text-left">Prdoduct Details</h5>
+          <h5 className="text-white text-left mt-4">Prdoduct Details</h5>
           <div className="row text-left">
             <div className="col-1"></div>
             <div className="col-4">
@@ -97,7 +96,7 @@ const OrderDetail = ({ match }) => {
           <h4></h4>
           <h4></h4>
         </div>
-        <h5 className="text-left text-white">Amount : ${order.amount}</h5>
+        <h5 className="text-left text-white mt-5">Amount : ${order.amount}</h5>
         <h5 className="text-left text-white">Status : {order.status}</h5>
         {!popup && (
           <button className="btn btn-success" onClick={popUpInput}>

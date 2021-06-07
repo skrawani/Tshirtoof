@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "../styles.css";
-import { API } from "../backend";
 import Base from "./Base";
 import Card from "./Card";
 import { getProducts } from "./helper/coreapicalls";
+import logo from "../assets/logo.png";
 
 export default function Home() {
   const [products, setProducts] = useState([]);
@@ -26,10 +26,12 @@ export default function Home() {
   }, []);
 
   return (
-    <Base title="Home Page" description="Welcome to Tshirtoof">
+    <Base>
+      <img src={logo} style={{ width: "10rem" }} />
+      <p className="lead mt-2">Welcome to Tshirtoof</p>
       <div className="row text-center">
-        <h1 className="text-white">All of Tshirts</h1>
-        <div className="row">
+        <h3 className="text-white mb-4">Featured T-shirts</h3>
+        <div className="row d-flex justify-content-center ml-5">
           {products.map((prod, index) => {
             return (
               <div key={index} className="col-12 mb-4 col-sm-3 col-md-3  ">

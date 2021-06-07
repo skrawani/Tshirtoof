@@ -57,7 +57,7 @@ function Menu({ history }) {
             className="nav-link"
             to="/cart"
           >
-            <Badge badgeContent={cartCount} color="primary">
+            <Badge badgeContent={cartCount} a="primary">
               <LocalMall />
             </Badge>
           </Link>

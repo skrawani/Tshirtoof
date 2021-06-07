@@ -6,7 +6,7 @@ import StripeCheckoutButton from "react-stripe-checkout";
 import { API } from "../backend";
 import { createOrder } from "./helper/orderHelper";
 import { CartCountContext } from "../CartCountContext";
-
+import { useHistory } from "react-router-dom";
 const StripeCheckout = ({
   products,
   setReload = (f) => f,
@@ -22,6 +22,7 @@ const StripeCheckout = ({
   const userId = isAutheticated() && isAutheticated().user._id;
   const utoken = isAutheticated() && isAutheticated().token;
   const { cartCount, setCartCount } = useContext(CartCountContext);
+  const history = useHistory();
   const getFinalPrice = () => {
     return products.reduce((curr, next) => {
       return curr + next.price * next.count;
@@ -55,6 +56,9 @@ const StripeCheckout = ({
           alert("Thanks for Shopping");
           createOrder(userId, utoken, orderData);
           clearCart();
+          setTimeout(() => {
+            history.push("/");
+          }, 1000);
         });
       })
       .catch((err) => console.log(err));
@@ -75,11 +79,12 @@ const StripeCheckout = ({
         token={makePayment}
         amount={totAmountincluTax() * 100}
         name="Buy Tshirts"
+        currency="inr"
         billingAddress
         shippingAddress
       >
         <button className="btn  btn-success btn-block rounded mt-1">
-          Pay ₹ {totAmountincluTax()}
+          Pay ₹ {round2(totAmountincluTax())}
         </button>
       </StripeCheckoutButton>
     ) : (
@@ -91,7 +96,7 @@ const StripeCheckout = ({
     );
   };
   const getTaxes = () => {
-    const taxPrecentage = 15;
+    const taxPrecentage = 18;
     return getFinalPrice() * (taxPrecentage / 100);
   };
 
@@ -103,9 +108,6 @@ const StripeCheckout = ({
     return x.toFixed(2);
   };
 
-  // cont fontStyle = () => {
-  //   retturn fontSiz
-  // }
   return (
     <div>
       <h5 className="text-white">No of items in cart : {cartCount}</h5>
@@ -135,7 +137,7 @@ const StripeCheckout = ({
           ))}
           <div className="list-group-item d-flex lh-condensed">
             <div className="col-1"></div>
-            <div className="col-8 text-dark text-left">Taxes</div>
+            <div className="col-8 text-dark text-left">18% GST</div>
             <div className="col-3 mb-3  text-dark text-left">
               + ₹ {round2(getTaxes())}
             </div>

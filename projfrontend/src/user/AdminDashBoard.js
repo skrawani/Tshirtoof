@@ -63,13 +63,14 @@ const AdminDashboard = () => {
   return (
     <Base
       title="Welcome Admin"
-      description="Manage all of your producys here"
-      className="container bg-success p-4"
+      description="Manage all of your products here"
+      className="container bg-success p-4 my-5"
     >
       <div className="row ">
         <div className="col-3 text-left">{adminLeftSide()}</div>
         <div className="col-9 text-left">{adminRightSide()}</div>
       </div>
+      <div style={{ height: "2.5rem" }}></div>
     </Base>
   );
 };

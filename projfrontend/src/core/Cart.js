@@ -13,7 +13,7 @@ const Cart = () => {
   const loadAllProducts = (products) => {
     return (
       <div>
-        <h2>This is to load products</h2>
+        <h4>ITEMS</h4>
         {products.map((product, index) => (
           <Card
             key={index}
@@ -57,9 +57,6 @@ const Cart = () => {
             <h3> Please Add items in Cart</h3>
           )}
         </div>
-        {/* <div className="col-6">
-          <PaymentB products={products} setReload={setReload} />
-        </div> */}
       </div>
     </Base>
   );

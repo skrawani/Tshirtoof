@@ -49,7 +49,7 @@ const Signup = () => {
   const signupForm = () => {
     return (
       <div className="row">
-        <div className="col-md-6 offset-sm-3 text-left">
+        <div className="col-md-6 offset-sm-3 text-left mt-5">
           <form>
             <div className="form-group">
               <label className="text-light">Name</label>
@@ -123,7 +123,7 @@ const Signup = () => {
           Already Signed Up?<Link to="/signin"> Login</Link>
         </span>
       </div>
-
+      <div style={{ marginTop: "3rem" }}></div>
       {/* <p className="text-white text-center">{JSON.stringify(values)}</p> */}
     </Base>
   );

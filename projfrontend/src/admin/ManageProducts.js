@@ -75,6 +75,7 @@ const ManageProducts = () => {
           ))}
         </div>
       </div>
+      <div className="" style={{ marginTop: "4rem" }}></div>
     </Base>
   );
 };

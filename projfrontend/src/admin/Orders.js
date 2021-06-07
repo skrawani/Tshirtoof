@@ -39,10 +39,10 @@ const Orders = () => {
           </h2>
           <div className="row text-center mb-2">
             <div className="col-3">
-              <h3 className="text-white text-left">Transaction ID</h3>
+              <h3 className="text-white text-left">Created At</h3>
             </div>
             <div className="col-3">
-              <h3 className="text-white text-left">User Id</h3>
+              <h3 className="text-white text-left">Transaction Id</h3>
             </div>
             <div className="col-2">
               <h3 className="text-white text-center">Amount</h3>
@@ -57,13 +57,17 @@ const Orders = () => {
           {orders.map((order, index) => (
             <div key={index} className="row text-center mb-2 ">
               <div className="col-3">
+                {console.log(order)}
+                <h6 className="text-white text-left">{order.createdAt}</h6>
+              </div>
+
+              <div className="col-3">
+                {console.log(order)}
                 <h6 className="text-white text-left">{order.transaction_id}</h6>
               </div>
-              <div className="col-3">
-                <h6 className="text-white text-left">{order.user._id}</h6>
-              </div>
+
               <div className="col-2">
-                <h6 className="text-white text-center">$ {order.amount}</h6>
+                <h6 className="text-white text-center"> ₹ {order.amount}</h6>
               </div>
               <div className="col-2">
                 <h6 className="text-white text-left">{order.status}</h6>

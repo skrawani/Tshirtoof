@@ -4,32 +4,6 @@ const { v4: uuid } = require("uuid");
 exports.makePayment = (req, res) => {
   const { products, token, amount } = req.body;
 
-  //   stripe.customers
-  //     .create({
-  //       email: "foo-customer@example.com",
-  //     })
-  //     .then((customer) => {
-  //       return stripe.invoiceItems
-  //         .create({
-  //           customer: "cus_GcAjt5gZVAtChu",
-  //           amount: 2500,
-  //           currency: "usd",
-  //           description: "One-time setup fee",
-  //         })
-  //         .then((invoiceItem) => {
-  //           return stripe.invoices.create({
-  //             collection_method: "send_invoice",
-  //             customer: invoiceItem.customer,
-  //           });
-  //         })
-  //         .then((invoice) => {
-  //           // New invoice created on a new customer
-  //         })
-  //         .catch((err) => {
-  //           // Deal with an error
-  //         });
-  //     });
-
   const idempotencyKey = uuid();
 
   stripe.customers
@@ -45,13 +19,6 @@ exports.makePayment = (req, res) => {
             currency: "inr",
             customer: customer.id,
             receipt_email: token.email,
-            // description: `purchase of ${product.name}`,
-            // shipping: {
-            //   name: token.card.name,
-            //     address: {
-            //       country: token.card.address_country,
-            //     },
-            // },
           },
           { idempotencyKey }
         )

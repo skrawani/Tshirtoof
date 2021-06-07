@@ -34,8 +34,8 @@ const AddCategory = () => {
   };
 
   const successMessage = () => (
-    <div className="row">
-      <div className="col-md-6 offset-sm-3 text-left">
+    <div className="row ">
+      <div className="col-md-6 offset-sm-3 text-left ">
         <div
           className="alert alert-success"
           style={{ display: success ? "" : "none" }}
@@ -71,35 +71,37 @@ const AddCategory = () => {
           required
           placeholder="eg : Summer"
         />
-        <button onClick={onSubmit} className="btn btn-outline-info">
-          Create Category
-        </button>
+        <div className="d-flex justify-content-center mt-4">
+          <button onClick={onSubmit} className="btn btn-success mr-3">
+            Create Category
+          </button>
+          <Link className="btn btn-warning ml-3" to="/admin/dashboard">
+            Go Back
+          </Link>
+        </div>
       </div>
     </form>
   );
 
-  const goBack = () => (
-    <div className="mt-5">
-      <Link className="btn btn-sm btn-info mb-3" to="/admin/dashboard">
-        Go Back
-      </Link>
-    </div>
-  );
+  // const goBack = () => (
+
+  // );
 
   return (
     <Base
       title="Create a Category"
-      description="Add a new category for new tshirts"
-      className="container bg-info p-4"
+      description="Add a new category for new tshirts "
+      className="container  p-4 mt-5"
     >
-      <div className="row bg-white rounded">
-        <div className="col-md-8 offset-md-2">
+      <div className="" style={{ marginTop: "4rem" }}></div>
+      <div className="row bg-white rounded p-4">
+        <div className="col-md-8 offset-md-2 ">
           {successMessage()}
           {errorMessage()}
           {myCategoryForm()}
-          {goBack()}
         </div>
       </div>
+      <div className="" style={{ marginTop: "4.5rem" }}></div>
     </Base>
   );
 };

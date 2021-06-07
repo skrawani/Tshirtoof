@@ -113,7 +113,7 @@ const ManageCategories = () => {
 
       <div className="row">
         <div className="col-12">
-          <h2 className="text-center text-white my-3">
+          <h2 className="text-center text-white my-5">
             Total {values.length} Categories
           </h2>
           {successMessage()}
@@ -179,6 +179,7 @@ const ManageCategories = () => {
           })}
         </div>
       </div>
+      <div className="" style={{ marginTop: "4rem" }}></div>
     </Base>
   );
 };

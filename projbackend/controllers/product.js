@@ -24,8 +24,6 @@ exports.getProduct = (req, res) => {
   return res.json(req.product);
 };
 
-//all routes
-//create route
 exports.createProduct = (req, res) => {
   var params = {
     ACL: "public-read",
@@ -110,8 +108,6 @@ exports.updateProduct = (req, res) => {
 exports.getAllProducts = (req, res) => {
   let limit = req.query.limit ? parseInt(req.query.limit) : 8;
   let sortBy = req.query.sortBy ? req.query.sortBy : "_id";
-
-  // console.log(limit, sortBy);
 
   Product.find()
     .populate("category")
